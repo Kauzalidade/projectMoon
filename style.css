@@ -1,0 +1,1006 @@
+/* ===================================================================
+   FASES DA LUA - ESTILOS GERAIS (CSS PURO)
+   =================================================================== */
+
+:root {
+  --bg-deep: #070c18;
+  --bg-surface: #0f182e;
+  --bg-card: #15223e;
+  --bg-card-hover: #1c2c4e;
+  --border-color: #24365c;
+  --border-focus: #f3c252;
+  
+  --moon-gold: #f8cb58;
+  --moon-gold-glow: rgba(248, 203, 88, 0.35);
+  --moon-light: #fff5d6;
+  --moon-dark: #101626;
+  
+  --text-main: #f0f3fa;
+  --text-secondary: #9cb1d4;
+  --text-muted: #6f84a8;
+  
+  --color-success: #2ecc71;
+  --color-success-bg: rgba(46, 204, 113, 0.15);
+  --color-danger: #e74c3c;
+  --color-danger-bg: rgba(231, 76, 60, 0.15);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 25px var(--moon-gold-glow);
+  
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fundo Estrelado Vetorial Sutil */
+.stars-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(1px 1px at 15% 12%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 28% 45%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 42% 18%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 70%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 85% 80%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 38%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 8% 85%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 90%, rgba(255,255,255,0.6) 0%, transparent 100%);
+  opacity: 0.85;
+}
+
+/* ===================================================================
+   CABEÇALHO E ABAS
+   =================================================================== */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 12, 24, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.2rem 1.5rem 0.5rem;
+}
+
+.header-content {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.moon-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at 35% 35%, #fffbe6, var(--moon-gold) 45%, #b27e16 85%);
+  box-shadow: 0 0 20px var(--moon-gold-glow);
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--moon-gold);
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.nav-tabs {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+  scrollbar-width: thin;
+}
+
+.nav-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.nav-tabs::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.tab-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: rgba(248, 203, 88, 0.4);
+}
+
+.tab-btn.active {
+  background: var(--moon-gold);
+  color: #120d00;
+  border-color: var(--moon-gold);
+  box-shadow: 0 0 16px rgba(248, 203, 88, 0.45);
+}
+
+/* ===================================================================
+   CONTAINER PRINCIPAL E SEÇÕES
+   =================================================================== */
+
+.app-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.module-section {
+  display: none;
+  animation: fadeIn 0.35s ease-out;
+}
+
+.module-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  margin-bottom: 1.8rem;
+}
+
+.section-heading h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.section-heading p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===================================================================
+   MÓDULO 1: VISUALIZAÇÃO DAS FASES
+   =================================================================== */
+
+.phase-selector-container {
+  margin-bottom: 1.8rem;
+}
+
+.phase-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 0.65rem;
+}
+
+.phase-pick-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.phase-pick-btn:hover {
+  background: var(--bg-card);
+  border-color: rgba(248, 203, 88, 0.45);
+  color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.phase-pick-btn.active {
+  background: var(--bg-card);
+  border-color: var(--moon-gold);
+  color: var(--moon-gold);
+  box-shadow: 0 0 16px rgba(248, 203, 88, 0.25);
+}
+
+.phase-btn-thumb {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.phase-btn-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.phase-display-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .phase-display-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.phase-moon-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.moon-graphic-wrapper {
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 25px rgba(248, 203, 88, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.phase-status-badge {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--moon-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+.phase-info-content {
+  flex: 1;
+}
+
+.phase-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--moon-gold);
+  margin-bottom: 0.8rem;
+}
+
+.phase-quick-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.metric-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.metric-label {
+  color: var(--text-muted);
+}
+
+.metric-value {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.phase-description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ===================================================================
+   MÓDULO 2: SIMULAÇÃO DO CICLO LUNAR
+   =================================================================== */
+
+.sim-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+
+@media (min-width: 880px) {
+  .sim-layout {
+    grid-template-columns: 1.15fr 0.95fr;
+  }
+}
+
+.sim-visual-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.orbit-stage {
+  position: relative;
+  width: 290px;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 440px) {
+  .orbit-stage {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.orbit-path {
+  position: absolute;
+  inset: 15px;
+  border: 1.5px dashed rgba(248, 203, 88, 0.3);
+  border-radius: var(--radius-full);
+}
+
+.sun-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(248, 203, 88, 0.1);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(248, 203, 88, 0.25);
+  font-size: 0.75rem;
+  color: var(--moon-gold);
+}
+
+.earth-model {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.earth-globe {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at 35% 35%, #62b0f4, #186bb5 60%, #0d3b66 90%);
+  box-shadow: 0 0 25px rgba(98, 176, 244, 0.45);
+}
+
+.body-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.orbiting-moon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  margin-left: -19px;
+  margin-top: -19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.03s linear;
+}
+
+.sim-mini-moon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  filter: drop-shadow(0 0 10px rgba(248, 203, 88, 0.4));
+}
+
+.sim-closeup-card {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.sim-closeup-card h4 {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.sim-closeup-graphic {
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 0 16px rgba(248, 203, 88, 0.3));
+}
+
+.sim-phase-badge {
+  background: rgba(248, 203, 88, 0.15);
+  border: 1px solid var(--moon-gold);
+  color: var(--moon-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--radius-full);
+}
+
+/* Painel de Controle da Simulação */
+.sim-panel-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.counter-display {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  text-align: center;
+}
+
+.counter-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.counter-number {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--moon-gold);
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.counter-total {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cycle-progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-deep);
+  border-radius: var(--radius-full);
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.cycle-progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #d49a1e, var(--moon-gold));
+  border-radius: var(--radius-full);
+  transition: width 0.1s linear;
+}
+
+.sim-button-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.control-btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-play {
+  background: var(--moon-gold);
+  color: #120d00;
+}
+
+.btn-play:hover:not(:disabled) {
+  background: #ffdb7d;
+  box-shadow: 0 0 18px rgba(248, 203, 88, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-pause {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-pause:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--moon-gold);
+  transform: translateY(-2px);
+}
+
+.btn-reset {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.btn-reset:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.speed-control-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+}
+
+.speed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+
+.speed-readout {
+  color: var(--moon-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+#speedSlider {
+  width: 100%;
+  accent-color: var(--moon-gold);
+  cursor: pointer;
+  height: 6px;
+}
+
+.speed-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+.sim-legend-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+}
+
+.sim-legend-card h4 {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sim-phases-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.sim-phases-list li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sim-phases-list li.current-active-phase {
+  background: rgba(248, 203, 88, 0.18);
+  color: var(--moon-gold);
+  font-weight: 700;
+  border-left: 3px solid var(--moon-gold);
+}
+
+/* ===================================================================
+   MÓDULO 3: QUIZ
+   =================================================================== */
+
+.quiz-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.quiz-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.quiz-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.quiz-step-tag {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.quiz-score-tag {
+  font-size: 0.9rem;
+  color: var(--moon-gold);
+  font-weight: 700;
+}
+
+.quiz-progress-track {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-deep);
+  border-radius: var(--radius-full);
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.quiz-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--moon-gold);
+  transition: width 0.35s ease;
+}
+
+.quiz-question-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.quiz-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-opt-btn {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.quiz-opt-btn:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--moon-gold);
+  transform: translateX(4px);
+}
+
+.quiz-opt-btn:disabled {
+  cursor: default;
+}
+
+.quiz-opt-letter {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background: var(--bg-deep);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+/* Estados de feedback das opções */
+.quiz-opt-btn.correct {
+  background: var(--color-success-bg);
+  border-color: var(--color-success);
+  color: #c9f7dc;
+}
+
+.quiz-opt-btn.correct .quiz-opt-letter {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: #062814;
+}
+
+.quiz-opt-btn.wrong {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger);
+  color: #fad1cc;
+}
+
+.quiz-opt-btn.wrong .quiz-opt-letter {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #ffffff;
+}
+
+.quiz-opt-btn.dimmed {
+  opacity: 0.45;
+}
+
+.quiz-feedback-box {
+  display: none;
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.3rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.quiz-feedback-box.show {
+  display: block;
+}
+
+.quiz-feedback-box.feedback-correct {
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+  color: #c9f7dc;
+}
+
+.quiz-feedback-box.feedback-wrong {
+  background: var(--color-danger-bg);
+  border: 1px solid var(--color-danger);
+  color: #fad1cc;
+}
+
+.quiz-actions-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Tela de Resultados */
+.quiz-results-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.result-moon-art {
+  font-size: 4rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 20px var(--moon-gold-glow));
+}
+
+.quiz-results-card h3 {
+  font-size: 1.8rem;
+  color: var(--moon-gold);
+}
+
+.result-summary {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.result-score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 3px solid var(--moon-gold);
+  box-shadow: 0 0 25px var(--moon-gold-glow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.final-score-val {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.final-score-pct {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--moon-gold);
+  margin-top: 0.2rem;
+}
+
+.result-feedback-message {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* ===================================================================
+   RODAPÉ
+   =================================================================== */
+
+.app-footer {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-deep);
+  position: relative;
+  z-index: 1;
+}
+
+.app-footer strong {
+  color: var(--moon-gold);
+}
+
+/* ===================================================================
+   RESPONSIVIDADE EXTRA
+   =================================================================== */
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1rem 1rem 0.4rem;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+  
+  .moon-icon-badge {
+    width: 42px;
+    height: 42px;
+  }
+
+  .app-header h1 {
+    font-size: 1.35rem;
+  }
+
+  .phase-display-card,
+  .sim-visual-box,
+  .sim-panel-box,
+  .quiz-card {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .moon-graphic-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sim-button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-phases-list {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-number {
+    font-size: 1.9rem;
+  }
+}
+

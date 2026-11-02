@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fases da Lua</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars-layer"></div>
+
+  <header class="app-header">
+    <div class="header-content">
+      <div class="moon-icon-badge" id="headerMoonBadge"></div>
+      <div>
+        <h1>Fases da Lua</h1>
+        <p class="subtitle">Guia interativo, simulação astronômica e quiz educativo</p>
+      </div>
+    </div>
+    <nav class="nav-tabs" aria-label="Navegação dos Módulos">
+      <button class="tab-btn active" data-target="modulo1">
+        <span class="tab-icon">🌕</span> Módulo 1: Visualização
+      </button>
+      <button class="tab-btn" data-target="modulo2">
+        <span class="tab-icon">🔄</span> Módulo 2: Simulação
+      </button>
+      <button class="tab-btn" data-target="modulo3">
+        <span class="tab-icon">🧠</span> Módulo 3: Quiz
+      </button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <!-- ================= MÓDULO 1: VISUALIZAÇÃO DAS FASES ================= -->
+    <section id="modulo1" class="module-section active">
+      <div class="section-heading">
+        <h2>Módulo 1 – Visualização das Oito Fases</h2>
+        <p>Selecione uma fase para inspecionar sua aparência, iluminação e características.</p>
+      </div>
+
+      <div class="phase-selector-container">
+        <div class="phase-buttons-grid" id="phaseButtonsContainer">
+          <!-- Botões das 8 fases gerados via JavaScript -->
+        </div>
+      </div>
+
+      <div class="phase-display-card">
+        <div class="phase-moon-view">
+          <div class="moon-graphic-wrapper" id="phaseMoonGraphic">
+            <!-- SVG dinâmico da Lua renderizado via JS -->
+          </div>
+          <span class="phase-status-badge" id="phaseOrderBadge">Fase 1 de 8</span>
+        </div>
+
+        <div class="phase-info-content">
+          <h3 id="phaseTitle" class="phase-title">Lua Nova</h3>
+          <div class="phase-quick-metrics">
+            <div class="metric-pill">
+              <span class="metric-label">Dia do ciclo:</span>
+              <span class="metric-value" id="phaseDayMetric">~ Dia 0</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-label">Iluminação visível:</span>
+              <span class="metric-value" id="phaseLightMetric">0%</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-label">Visibilidade no céu:</span>
+              <span class="metric-value" id="phaseVisMetric">Invisível a olho nu</span>
+            </div>
+          </div>
+          <p id="phaseDescription" class="phase-description"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 2: SIMULAÇÃO DO CICLO LUNAR ================= -->
+    <section id="modulo2" class="module-section">
+      <div class="section-heading">
+        <h2>Módulo 2 – Simulação do Ciclo Lunar (~29,5 Dias)</h2>
+        <p>Acompanhe o movimento contínuo da Lua em sua órbita e a transformação progressiva das suas fases.</p>
+      </div>
+
+      <div class="sim-layout">
+        <!-- Visualização orbital e representação da Lua -->
+        <div class="sim-visual-box">
+          <div class="orbit-stage" id="orbitStage">
+            <div class="orbit-path"></div>
+            <div class="sun-indicator">
+              <span class="sun-symbol">☀️</span>
+              <span class="sun-text">Luz Solar</span>
+            </div>
+            <div class="earth-model">
+              <div class="earth-globe"></div>
+              <span class="body-label">Terra</span>
+            </div>
+            <div class="orbiting-moon-container" id="orbitingMoonContainer">
+              <div class="sim-mini-moon" id="simOrbitMoon"></div>
+              <span class="body-label moon-tag">Lua</span>
+            </div>
+          </div>
+
+          <div class="sim-closeup-card">
+            <h4>Aparência vista da Terra</h4>
+            <div class="sim-closeup-graphic" id="simCloseupGraphic"></div>
+            <div class="sim-phase-badge" id="simCurrentPhaseBadge">Lua Nova</div>
+          </div>
+        </div>
+
+        <!-- Painel de Métricas e Controles -->
+        <div class="sim-panel-box">
+          <div class="counter-display">
+            <span class="counter-label">Dia do ciclo lunar</span>
+            <div class="counter-number">
+              <span id="simDayDisplay">0.0</span>
+              <span class="counter-total">/ 29.5 dias</span>
+            </div>
+            <div class="cycle-progress-bar-bg">
+              <div class="cycle-progress-bar-fill" id="simProgressBar"></div>
+            </div>
+          </div>
+
+          <div class="sim-controls-wrapper">
+            <div class="sim-button-row">
+              <button class="control-btn btn-play" id="btnSimPlay">
+                <span class="btn-icon">▶</span> Iniciar
+              </button>
+              <button class="control-btn btn-pause" id="btnSimPause" disabled>
+                <span class="btn-icon">⏸</span> Pausar
+              </button>
+              <button class="control-btn btn-reset" id="btnSimReset">
+                <span class="btn-icon">↺</span> Reiniciar
+              </button>
+            </div>
+
+            <div class="speed-control-card">
+              <div class="speed-header">
+                <label for="speedSlider">Controle de Velocidade:</label>
+                <span class="speed-readout" id="speedReadout">1.0x</span>
+              </div>
+              <input 
+                type="range" 
+                id="speedSlider" 
+                min="0.25" 
+                max="4" 
+                step="0.25" 
+                value="1" 
+                aria-label="Ajustar velocidade da simulação" 
+              />
+              <div class="speed-ticks">
+                <span>0.25x (Lenta)</span>
+                <span>1.0x (Padrão)</span>
+                <span>4.0x (Rápida)</span>
+              </div>
+            </div>
+
+            <div class="sim-legend-card">
+              <h4>Fases percorridas em ordem:</h4>
+              <ol class="sim-phases-list" id="simPhasesList">
+                <!-- Itens da lista atualizados dinamicamente -->
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MÓDULO 3: QUIZ ================= -->
+    <section id="modulo3" class="module-section">
+      <div class="section-heading">
+        <h2>Módulo 3 – Quiz das Fases da Lua</h2>
+        <p>Teste seus conhecimentos com questões selecionadas sobre astronomia e o ciclo lunar.</p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- Tela de Questões -->
+        <div class="quiz-card" id="quizPlayArea">
+          <div class="quiz-topbar">
+            <span class="quiz-step-tag" id="quizQuestionCount">Questão 1 de 6</span>
+            <span class="quiz-score-tag" id="quizCurrentScore">Pontos: 0</span>
+          </div>
+
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          </div>
+
+          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta...</h3>
+
+          <div class="quiz-options-grid" id="quizOptionsContainer">
+            <!-- 4 alternativas geradas dinamicamente -->
+          </div>
+
+          <div class="quiz-feedback-box" id="quizFeedbackBox" aria-live="polite"></div>
+
+          <div class="quiz-actions-bar">
+            <button class="control-btn btn-play" id="btnQuizNext" style="display: none;">
+              Próxima Questão →
+            </button>
+          </div>
+        </div>
+
+        <!-- Tela de Resultado Final -->
+        <div class="quiz-card quiz-results-card" id="quizResultArea" style="display: none;">
+          <div class="result-moon-art">🌕</div>
+          <h3>Quiz Concluído!</h3>
+          <p class="result-summary" id="resultSummaryText">Você respondeu todas as perguntas.</p>
+          
+          <div class="result-score-circle">
+            <span class="final-score-val" id="resultScoreValue">0 / 0</span>
+            <span class="final-score-pct" id="resultScorePct">0%</span>
+          </div>
+
+          <div class="result-feedback-message" id="resultMessage"></div>
+
+          <button class="control-btn btn-play" id="btnQuizRestart">
+            <span class="btn-icon">↺</span> Reiniciar Quiz
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Aplicação Educativa <strong>Fases da Lua</strong> · Desenvolvida em HTML5, CSS3 e JavaScript puro.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

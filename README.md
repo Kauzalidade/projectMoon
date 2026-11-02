@@ -46,7 +46,7 @@ Requisitos: um navegador moderno (Chrome, Edge, Firefox ou Safari). Não é nece
 ├── style.css       # Estilização, tema espacial escuro e responsividade
 ├── script.js       # Lógica dos três módulos, animações e renderização vetorial SVG
 ├── README.md       # Documentação do projeto
-└── capturas/       # Capturas de tela dos critérios de aceite
+└── Capturas/       # Capturas de tela dos critérios de aceite
 ```
 
 ## Funcionalidades
@@ -84,18 +84,18 @@ As alternativas são bloqueadas imediatamente após a primeira resposta, impedin
 
 ## Critérios de aceite e evidências
 
-As capturas de tela ficam armazenadas na pasta `capturas/`.
+As capturas de tela ficam armazenadas na pasta `Capturas/`.
 
 | Critério | Evidência |
 |---|---|
-| As oito fases estão na interface | `capturas/01-fases.png` |
-| A imagem muda ao selecionar outra fase | `capturas/02-troca-fase.png` |
-| Nome e descrição correspondem à fase | `capturas/02-troca-fase.png` |
-| Interface responsiva | `capturas/03-mobile.png` |
-| Simulação em andamento com contador de dias | `capturas/04-simulacao.png` |
-| Pausa, reinício e alteração de velocidade | `capturas/05-controles.png` |
-| Quiz: feedback após responder | `capturas/06-quiz-feedback.png` |
-| Quiz: pontuação final e reinício | `capturas/07-quiz-resultado.png` |
+| As oito fases estão na interface | `Capturas/01-fases.png` |
+| A imagem muda ao selecionar outra fase | `Capturas/02-troca-fase.png` |
+| Nome e descrição correspondem à fase | `Capturas/02-troca-fase.png` |
+| Interface responsiva | `Capturas/03-mobile.png` |
+| Simulação em andamento com contador de dias | `Capturas/04-simulacao.png` |
+| Pausa, reinício e alteração de velocidade | `Capturas/05-controles.png` |
+| Quiz: feedback após responder | `Capturas/06-quiz-feedback.png` |
+| Quiz: pontuação final e reinício | `Capturas/07-quiz-resultado.png` |
 
 ## Como a Lua é desenhada
 

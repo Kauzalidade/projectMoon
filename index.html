@@ -3,123 +3,297 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fases da Lua</title>
+  <title>Fases da Lua | NASA Lunar Exploration</title>
+  
+  <!-- Fontes Oficiais do NASA Web Design System: Inter e Public Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="stars-layer"></div>
 
-  <header class="app-header">
-    <div class="header-content">
-      <div class="moon-icon-badge" id="headerMoonBadge"></div>
-      <div>
-        <h1>Fases da Lua</h1>
-        <p class="subtitle">Guia interativo, simulação astronômica e quiz educativo</p>
+  <!-- ================= 1. BANNER OFICIAL DO GOVERNO (USWDS / NASA.GOV) ================= -->
+  <div class="usa-banner" aria-label="Official government website">
+    <div class="usa-banner-inner">
+      <div class="usa-banner-flag">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11" width="16" height="11" aria-hidden="true">
+          <rect width="16" height="11" fill="#b22234"/>
+          <rect y="1.22" width="16" height="1.22" fill="#fff"/>
+          <rect y="3.66" width="16" height="1.22" fill="#fff"/>
+          <rect y="6.10" width="16" height="1.22" fill="#fff"/>
+          <rect y="8.54" width="16" height="1.22" fill="#fff"/>
+          <rect width="6.4" height="5.5" fill="#3c3b6e"/>
+        </svg>
       </div>
+      <p class="usa-banner-text">
+        Um site de divulgação científica no padrão <strong>NASA Web Design System (HDS)</strong> • Exploração Lunar Artemis
+      </p>
     </div>
-    <nav class="nav-tabs" aria-label="Navegação dos Módulos">
-      <button class="tab-btn active" data-target="modulo1">
-        <span class="tab-icon">🌕</span> Módulo 1: Visualização
-      </button>
-      <button class="tab-btn" data-target="modulo2">
-        <span class="tab-icon">🔄</span> Módulo 2: Simulação
-      </button>
-      <button class="tab-btn" data-target="modulo3">
-        <span class="tab-icon">🧠</span> Módulo 3: Quiz
-      </button>
-    </nav>
-  </header>
+  </div>
 
-  <main class="app-main">
-    <!-- ================= MÓDULO 1: VISUALIZAÇÃO DAS FASES ================= -->
-    <section id="modulo1" class="module-section active">
-      <div class="section-heading">
-        <h2>Módulo 1 – Visualização das Oito Fases</h2>
-        <p>Selecione uma fase para inspecionar sua aparência, iluminação e características.</p>
-      </div>
+  <!-- ================= 2. CABEÇALHO GLOBAL ESTILO NASA.GOV ================= -->
+  <header class="nasa-global-header">
+    <div class="nasa-header-container">
+      
+      <!-- Logo Oficial NASA Meatball -->
+      <a href="#hero" class="nasa-brand-link" title="NASA - National Aeronautics and Space Administration">
+        <svg class="nasa-meatball-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="NASA Logo">
+          <!-- Esfera Azul Meatball -->
+          <circle cx="60" cy="50" r="44" fill="#0b3d91"/>
+          <!-- Estrelas de fundo -->
+          <g fill="#ffffff" opacity="0.95">
+            <circle cx="34" cy="30" r="1.3"/>
+            <circle cx="48" cy="22" r="1.1"/>
+            <circle cx="78" cy="28" r="1.4"/>
+            <circle cx="86" cy="42" r="1.0"/>
+            <circle cx="38" cy="62" r="1.2"/>
+            <circle cx="75" cy="70" r="1.2"/>
+            <circle cx="50" cy="74" r="1.4"/>
+            <circle cx="28" cy="45" r="1.0"/>
+            <circle cx="66" cy="36" r="0.9"/>
+            <circle cx="90" cy="58" r="1.3"/>
+          </g>
+          <!-- Órbita Branca Elíptica -->
+          <ellipse cx="60" cy="50" rx="46" ry="17" fill="none" stroke="#ffffff" stroke-width="2.4" transform="rotate(-30 60 50)"/>
+          <!-- Vetor Vermelho Chevron NASA -->
+          <path d="M 22 68 L 52 28 L 74 62 L 64 64 L 52 38 L 30 70 Z" fill="#fc3d21"/>
+          <path d="M 52 28 L 98 44 L 88 47 L 52 33 Z" fill="#fc3d21"/>
+          <!-- Tipografia NASA Clássica -->
+          <text x="60" y="58" font-family="'Inter', Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">NASA</text>
+        </svg>
+        <div class="nasa-brand-text-block">
+          <span class="nasa-brand-title">Fases da Lua</span>
+          <span class="nasa-brand-subtitle">Lunar Science & Planetary Exploration</span>
+        </div>
+      </a>
 
-      <div class="phase-selector-container">
-        <div class="phase-buttons-grid" id="phaseButtonsContainer">
-          <!-- Botões das 8 fases gerados via JavaScript -->
+      <!-- Menu de Navegação Horizontal no estilo da barra de menu do nasa.gov -->
+      <nav class="nasa-nav" aria-label="Navegação Principal">
+        <ul class="nasa-nav-list nav-tabs">
+          <li>
+            <button class="nasa-nav-btn tab-btn active" data-target="modulo1">
+              Visualização das Fases
+            </button>
+          </li>
+          <li>
+            <button class="nasa-nav-btn tab-btn" data-target="modulo2">
+              Simulação do Ciclo
+            </button>
+          </li>
+          <li>
+            <button class="nasa-nav-btn tab-btn" data-target="modulo3">
+              Quiz de Missão
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Botão de Ação / Live Mission Status -->
+      <div class="nasa-header-actions">
+        <div class="mission-status-pill">
+          <span class="live-pulse"></span>
+          <span>ARTEMIS LUNAR TELEMETRY</span>
         </div>
       </div>
 
+    </div>
+  </header>
+
+  <!-- ================= 3. HERO SECTION CINEMATOGRÁFICA (NASA HERO STYLE) ================= -->
+  <section class="nasa-hero-section" id="hero">
+    <div class="nasa-hero-backdrop"></div>
+    <div class="nasa-hero-overlay"></div>
+    
+    <div class="nasa-hero-content">
+      <div class="nasa-topic-tag">
+        <span class="topic-dot"></span>
+        <span>THE SOLAR SYSTEM • EARTH'S MOON • MISSION SCIENCE</span>
+      </div>
+      
+      <h1 class="nasa-hero-title">
+        A Dinâmica do Ciclo Lunar
+      </h1>
+      
+      <p class="nasa-hero-lead">
+        Da antiguidade às missões Artemis da NASA, o movimento orbital da Lua em torno da Terra revela a constante dança entre luz solar e perspectiva cósmica. Explore as oito fases, acompanhe o ciclo orbital de 29,5 dias em tempo real e teste suas habilidades astronômicas.
+      </p>
+
+      <div class="nasa-hero-cta-group">
+        <button class="nasa-btn-primary" id="heroBtnExplore">
+          Explorar as 8 Fases
+        </button>
+        <button class="nasa-btn-secondary" id="heroBtnSim">
+          Iniciar Simulação Orbital
+        </button>
+      </div>
+
+      <!-- Barra de Estatísticas Oficiais de Missão (NASA Data Strip) -->
+      <div class="nasa-stats-strip">
+        <div class="stat-item">
+          <span class="stat-number">29,5</span>
+          <span class="stat-unit">DIAS</span>
+          <span class="stat-label">Mês Sinódico Médio</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">8</span>
+          <span class="stat-unit">FASES</span>
+          <span class="stat-label">Ciclo Completo</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">384.400</span>
+          <span class="stat-unit">KM</span>
+          <span class="stat-label">Distância Média da Terra</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">1.022</span>
+          <span class="stat-unit">M/S</span>
+          <span class="stat-label">Velocidade de Translação</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CORPO PRINCIPAL COM OS TRÊS MÓDULOS ================= -->
+  <main class="nasa-main-layout" id="mainContent">
+
+    <!-- ================= MÓDULO 1: VISUALIZAÇÃO DAS FASES ================= -->
+    <section id="modulo1" class="module-section active">
+      
+      <div class="nasa-section-header">
+        <div class="nasa-category-badge">ESPECIFICAÇÃO 1 // CATÁLOGO OBSERVACIONAL</div>
+        <h2 class="nasa-section-title">Visualização das Oito Fases Lunares</h2>
+        <p class="nasa-section-desc">
+          Selecione qualquer uma das oito fases catalogadas para inspecionar a geometria solar, o relevo da superfície e os parâmetros astronômicos observados a partir da Terra.
+        </p>
+      </div>
+
+      <!-- Grade de Botões das 8 Fases com visual de cards da NASA -->
+      <div class="nasa-feature-box">
+        <div class="nasa-box-label">SELETOR DE FASES DO CICLO:</div>
+        <div class="phase-buttons-grid" id="phaseButtonsContainer">
+          <!-- Gerado dinamicamente via script.js -->
+        </div>
+      </div>
+
+      <!-- Display Principal: Imagem Lunar + Ficha Técnica da NASA -->
       <div class="phase-display-card">
+        
         <div class="phase-moon-view">
+          <div class="telemetry-lens-overlay"></div>
           <div class="moon-graphic-wrapper" id="phaseMoonGraphic">
-            <!-- SVG dinâmico da Lua renderizado via JS -->
+            <!-- Renderização do SVG da Lua pelo JS -->
           </div>
-          <span class="phase-status-badge" id="phaseOrderBadge">Fase 1 de 8</span>
+          <div class="phase-order-pill" id="phaseOrderBadge">Fase 1 de 8</div>
         </div>
 
         <div class="phase-info-content">
+          <div class="data-kicker">RELATÓRIO CIENTÍFICO // TELEMETRIA GEOCÊNTRICA</div>
           <h3 id="phaseTitle" class="phase-title">Lua Nova</h3>
+
+          <!-- Grid de Métricas de Voo da NASA -->
           <div class="phase-quick-metrics">
-            <div class="metric-pill">
-              <span class="metric-label">Dia do ciclo:</span>
+            <div class="metric-card">
+              <span class="metric-caption">DIA MÉDIO DO CICLO</span>
               <span class="metric-value" id="phaseDayMetric">~ Dia 0</span>
             </div>
-            <div class="metric-pill">
-              <span class="metric-label">Iluminação visível:</span>
+            <div class="metric-card">
+              <span class="metric-caption">ILUMINAÇÃO VISÍVEL</span>
               <span class="metric-value" id="phaseLightMetric">0%</span>
             </div>
-            <div class="metric-pill">
-              <span class="metric-label">Visibilidade no céu:</span>
+            <div class="metric-card">
+              <span class="metric-caption">CONDIÇÃO DE VISIBILIDADE</span>
               <span class="metric-value" id="phaseVisMetric">Invisível a olho nu</span>
             </div>
           </div>
-          <p id="phaseDescription" class="phase-description"></p>
+
+          <div class="nasa-article-text">
+            <span class="article-lead-tag">DESCRIÇÃO ASTRONÔMICA:</span>
+            <p id="phaseDescription" class="phase-description"></p>
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- ================= MÓDULO 2: SIMULAÇÃO DO CICLO LUNAR ================= -->
     <section id="modulo2" class="module-section">
-      <div class="section-heading">
-        <h2>Módulo 2 – Simulação do Ciclo Lunar (~29,5 Dias)</h2>
-        <p>Acompanhe o movimento contínuo da Lua em sua órbita e a transformação progressiva das suas fases.</p>
+      
+      <div class="nasa-section-header">
+        <div class="nasa-category-badge">ESPECIFICAÇÃO 2 // CENTRO DE CONTROLE ORBITAL</div>
+        <h2 class="nasa-section-title">Simulação do Ciclo Lunar (~29,5 Dias)</h2>
+        <p class="nasa-section-desc">
+          Acompanhe em tempo real a órbita da Lua ao redor do centro gravitacional Terra-Lua, observando a relação direta entre o ângulo Sol-Terra-Lua e a porção iluminada visível aos observadores terrestres.
+        </p>
       </div>
 
       <div class="sim-layout">
-        <!-- Visualização orbital e representação da Lua -->
+        
+        <!-- Radar Orbital e Visor Geocêntrico -->
         <div class="sim-visual-box">
+          <div class="sim-box-topbar">
+            <span class="panel-tag">RADAR ORBITAL (VISÃO POLAR)</span>
+            <span class="telemetry-pill-active"><span class="pulse-dot"></span> AO VIVO</span>
+          </div>
+
           <div class="orbit-stage" id="orbitStage">
+            <div class="orbit-radar-rings"></div>
             <div class="orbit-path"></div>
+            
             <div class="sun-indicator">
               <span class="sun-symbol">☀️</span>
-              <span class="sun-text">Luz Solar</span>
+              <span class="sun-text">LUZ SOLAR (INCIDÊNCIA)</span>
             </div>
+            
             <div class="earth-model">
               <div class="earth-globe"></div>
-              <span class="body-label">Terra</span>
+              <span class="body-label">TERRA</span>
             </div>
+            
             <div class="orbiting-moon-container" id="orbitingMoonContainer">
               <div class="sim-mini-moon" id="simOrbitMoon"></div>
-              <span class="body-label moon-tag">Lua</span>
+              <span class="body-label moon-tag">LUA</span>
             </div>
           </div>
 
+          <!-- Close-up da Lua vista da Terra -->
           <div class="sim-closeup-card">
-            <h4>Aparência vista da Terra</h4>
+            <div class="closeup-topbar">
+              <span class="panel-tag">PERSPECTIVA DA SUPERFÍCIE TERRESTRE</span>
+            </div>
             <div class="sim-closeup-graphic" id="simCloseupGraphic"></div>
             <div class="sim-phase-badge" id="simCurrentPhaseBadge">Lua Nova</div>
           </div>
         </div>
 
-        <!-- Painel de Métricas e Controles -->
+        <!-- Painel de Instrumentos e Controles -->
         <div class="sim-panel-box">
+          
+          <!-- Cronômetro da Simulação -->
           <div class="counter-display">
-            <span class="counter-label">Dia do ciclo lunar</span>
-            <div class="counter-number">
-              <span id="simDayDisplay">0.0</span>
-              <span class="counter-total">/ 29.5 dias</span>
+            <div class="telemetry-top">
+              <span class="counter-label">CRONÔMETRO DO CICLO SINÓDICO</span>
+              <span class="telemetry-sys">SYS.ORB-29.53</span>
             </div>
+
+            <div class="counter-number">
+              <span class="t-prefix">T+</span>
+              <span id="simDayDisplay">0.0</span>
+              <span class="counter-total">/ 29.5 DIAS</span>
+            </div>
+
             <div class="cycle-progress-bar-bg">
               <div class="cycle-progress-bar-fill" id="simProgressBar"></div>
             </div>
           </div>
 
+          <!-- Botões de Controle de Voo -->
           <div class="sim-controls-wrapper">
+            
             <div class="sim-button-row">
               <button class="control-btn btn-play" id="btnSimPlay">
                 <span class="btn-icon">▶</span> Iniciar
@@ -132,9 +306,10 @@
               </button>
             </div>
 
+            <!-- Controle Deslizante de Velocidade -->
             <div class="speed-control-card">
               <div class="speed-header">
-                <label for="speedSlider">Controle de Velocidade:</label>
+                <label for="speedSlider">CONTROLE DE VELOCIDADE DA ANIMAÇÃO:</label>
                 <span class="speed-readout" id="speedReadout">1.0x</span>
               </div>
               <input 
@@ -153,26 +328,38 @@
               </div>
             </div>
 
+            <!-- Checklist das Oito Fases Percorridas -->
             <div class="sim-legend-card">
-              <h4>Fases percorridas em ordem:</h4>
+              <div class="legend-header">
+                <h4>FASES PERCORRIDAS EM ORDEM:</h4>
+                <span class="status-tag">CHECKLIST NOMINAL</span>
+              </div>
               <ol class="sim-phases-list" id="simPhasesList">
-                <!-- Itens da lista atualizados dinamicamente -->
+                <!-- Gerado dinamicamente via JS -->
               </ol>
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
 
     <!-- ================= MÓDULO 3: QUIZ ================= -->
     <section id="modulo3" class="module-section">
-      <div class="section-heading">
-        <h2>Módulo 3 – Quiz das Fases da Lua</h2>
-        <p>Teste seus conhecimentos com questões selecionadas sobre astronomia e o ciclo lunar.</p>
+      
+      <div class="nasa-section-header">
+        <div class="nasa-category-badge">ESPECIFICAÇÃO 3 // NASA STEM ENGAGEMENT</div>
+        <h2 class="nasa-section-title">Quiz do Ciclo Lunar & Astronomia</h2>
+        <p class="nasa-section-desc">
+          Avaliação de conhecimento astronômico elaborada para estudantes e pesquisadores espaciais. Teste seus conhecimentos sobre as fases e mecânica celeste.
+        </p>
       </div>
 
       <div class="quiz-container">
-        <!-- Tela de Questões -->
+        
+        <!-- Tela de Questões do Quiz -->
         <div class="quiz-card" id="quizPlayArea">
           <div class="quiz-topbar">
             <span class="quiz-step-tag" id="quizQuestionCount">Questão 1 de 6</span>
@@ -183,10 +370,10 @@
             <div class="quiz-progress-bar" id="quizProgressBar"></div>
           </div>
 
-          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta...</h3>
+          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta de missão...</h3>
 
           <div class="quiz-options-grid" id="quizOptionsContainer">
-            <!-- 4 alternativas geradas dinamicamente -->
+            <!-- 4 opções geradas via JS -->
           </div>
 
           <div class="quiz-feedback-box" id="quizFeedbackBox" aria-live="polite"></div>
@@ -200,9 +387,10 @@
 
         <!-- Tela de Resultado Final -->
         <div class="quiz-card quiz-results-card" id="quizResultArea" style="display: none;">
+          <div class="result-badge-nasa">CERTIFICADO ASTRONÔMICO ARTEMIS</div>
           <div class="result-moon-art">🌕</div>
-          <h3>Quiz Concluído!</h3>
-          <p class="result-summary" id="resultSummaryText">Você respondeu todas as perguntas.</p>
+          <h3>Avaliação Concluída!</h3>
+          <p class="result-summary" id="resultSummaryText">Seu teste de conhecimentos sobre o ciclo lunar foi processado com sucesso.</p>
           
           <div class="result-score-circle">
             <span class="final-score-val" id="resultScoreValue">0 / 0</span>
@@ -215,15 +403,89 @@
             <span class="btn-icon">↺</span> Reiniciar Quiz
           </button>
         </div>
+
       </div>
     </section>
+
   </main>
 
-  <footer class="app-footer">
-    <p>Aplicação Educativa <strong>Fases da Lua</strong> · Desenvolvida em HTML5, CSS3 e JavaScript puro.</p>
+  <!-- ================= 4. FOOTER INSTITUCIONAL COMPLETO DA NASA (NASA.GOV) ================= -->
+  <footer class="nasa-footer">
+    <div class="nasa-footer-inner">
+      
+      <div class="nasa-footer-main">
+        <div class="nasa-footer-brand">
+          <!-- Logo Meatball Pequeno -->
+          <svg class="nasa-footer-logo" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" width="70" height="58" aria-label="NASA Logo">
+            <circle cx="60" cy="50" r="44" fill="#0b3d91"/>
+            <ellipse cx="60" cy="50" rx="46" ry="17" fill="none" stroke="#ffffff" stroke-width="2.4" transform="rotate(-30 60 50)"/>
+            <path d="M 22 68 L 52 28 L 74 62 L 64 64 L 52 38 L 30 70 Z" fill="#fc3d21"/>
+            <path d="M 52 28 L 98 44 L 88 47 L 52 33 Z" fill="#fc3d21"/>
+            <text x="60" y="58" font-family="'Inter', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">NASA</text>
+          </svg>
+          <div>
+            <h4 class="nasa-footer-title">National Aeronautics and Space Administration</h4>
+            <p class="nasa-footer-desc">
+              A NASA explora o desconhecido no ar e no espaço, inova para o benefício da humanidade e inspira o mundo através da descoberta científica.
+            </p>
+          </div>
+        </div>
+
+        <div class="nasa-footer-nav-cols">
+          <div class="footer-col">
+            <h5>Exploração</h5>
+            <ul>
+              <li><a href="#modulo1">Fases da Lua</a></li>
+              <li><a href="#modulo2">Simulador de Órbita</a></li>
+              <li><a href="#modulo3">Quiz de Conhecimento</a></li>
+              <li><span>Missões Artemis</span></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Ciência Lunar</h5>
+            <ul>
+              <li><span>Mês Sinódico</span></li>
+              <li><span>Mecânica Celeste</span></li>
+              <li><span>Gravidade & Marés</span></li>
+              <li><span>Topografia Lunar</span></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Projeto Acadêmico</h5>
+            <ul>
+              <li><span>GTI — Programação</span></li>
+              <li><span>Prof. Juan</span></li>
+              <li><span>Autor: Jonas Kauã</span></li>
+              <li><span>Licença MIT</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="nasa-footer-bottom">
+        <p class="footer-legal">
+          Aplicação Web Educativa <strong>Fases da Lua</strong> • Construída em conformidade com as diretrizes do <strong>NASA Web Design System (HDS / USWDS)</strong> em HTML5, CSS3 e JavaScript puro.
+        </p>
+        <p class="footer-copy">
+          Projeto acadêmico sem fins lucrativos • Dados astronômicos baseados nas efemérides do NASA Jet Propulsion Laboratory (JPL).
+        </p>
+      </div>
+
+    </div>
   </footer>
 
   <script src="script.js"></script>
+  
+  <!-- Script auxiliar para os botões do Hero Section -->
+  <script>
+    document.getElementById('heroBtnExplore')?.addEventListener('click', () => {
+      document.querySelector('[data-target="modulo1"]')?.click();
+      document.getElementById('modulo1')?.scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('heroBtnSim')?.addEventListener('click', () => {
+      document.querySelector('[data-target="modulo2"]')?.click();
+      document.getElementById('modulo2')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
-

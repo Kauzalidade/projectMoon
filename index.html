@@ -3,188 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fases da Lua | NASA Lunar Exploration</title>
+  <title>Fases da Lua | SpaceX Human Spaceflight</title>
   
-  <!-- Fontes Oficiais do NASA Web Design System: Inter e Public Sans -->
+  <!-- Fontes Geométricas no Estilo SpaceX (D-DIN / Montserrat / Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ================= 1. BANNER OFICIAL DO GOVERNO (USWDS / NASA.GOV) ================= -->
-  <div class="usa-banner" aria-label="Official government website">
-    <div class="usa-banner-inner">
-      <div class="usa-banner-flag">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11" width="16" height="11" aria-hidden="true">
-          <rect width="16" height="11" fill="#b22234"/>
-          <rect y="1.22" width="16" height="1.22" fill="#fff"/>
-          <rect y="3.66" width="16" height="1.22" fill="#fff"/>
-          <rect y="6.10" width="16" height="1.22" fill="#fff"/>
-          <rect y="8.54" width="16" height="1.22" fill="#fff"/>
-          <rect width="6.4" height="5.5" fill="#3c3b6e"/>
-        </svg>
-      </div>
-      <p class="usa-banner-text">
-        Um site de divulgação científica no padrão <strong>NASA Web Design System (HDS)</strong> • Exploração Lunar Artemis
-      </p>
-    </div>
-  </div>
+  <!-- Camada Sutil de Fundo Estelar -->
+  <div class="spacex-stars-bg"></div>
 
-  <!-- ================= 2. CABEÇALHO GLOBAL ESTILO NASA.GOV ================= -->
-  <header class="nasa-global-header">
-    <div class="nasa-header-container">
+  <!-- ================= 1. CABEÇALHO FIXO MINIMALISTA SPACEX ================= -->
+  <header class="spacex-header">
+    <div class="spacex-header-inner">
       
-      <!-- Logo Oficial NASA Meatball -->
-      <a href="#hero" class="nasa-brand-link" title="NASA - National Aeronautics and Space Administration">
-        <svg class="nasa-meatball-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="NASA Logo">
-          <!-- Esfera Azul Meatball -->
-          <circle cx="60" cy="50" r="44" fill="#0b3d91"/>
-          <!-- Estrelas de fundo -->
-          <g fill="#ffffff" opacity="0.95">
-            <circle cx="34" cy="30" r="1.3"/>
-            <circle cx="48" cy="22" r="1.1"/>
-            <circle cx="78" cy="28" r="1.4"/>
-            <circle cx="86" cy="42" r="1.0"/>
-            <circle cx="38" cy="62" r="1.2"/>
-            <circle cx="75" cy="70" r="1.2"/>
-            <circle cx="50" cy="74" r="1.4"/>
-            <circle cx="28" cy="45" r="1.0"/>
-            <circle cx="66" cy="36" r="0.9"/>
-            <circle cx="90" cy="58" r="1.3"/>
-          </g>
-          <!-- Órbita Branca Elíptica -->
-          <ellipse cx="60" cy="50" rx="46" ry="17" fill="none" stroke="#ffffff" stroke-width="2.4" transform="rotate(-30 60 50)"/>
-          <!-- Vetor Vermelho Chevron NASA -->
-          <path d="M 22 68 L 52 28 L 74 62 L 64 64 L 52 38 L 30 70 Z" fill="#fc3d21"/>
-          <path d="M 52 28 L 98 44 L 88 47 L 52 33 Z" fill="#fc3d21"/>
-          <!-- Tipografia NASA Clássica -->
-          <text x="60" y="58" font-family="'Inter', Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">NASA</text>
+      <!-- Logotipo Estilo SpaceX -->
+      <a href="#hero" class="spacex-brand" title="SpaceX Human Spaceflight">
+        <svg class="spacex-logo-svg" viewBox="0 0 320 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SpaceX Logo">
+          <!-- Letras S P A C E -->
+          <text x="0" y="27" font-family="'Montserrat', 'Arial', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="4">SPACE</text>
+          <!-- Letra X estilizada com o arco de órbita do Starship/Falcon -->
+          <text x="145" y="27" font-family="'Montserrat', 'Arial', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="4">X</text>
+          <path d="M 160 8 C 195 -2, 230 14, 280 27 L 270 27 C 225 16, 195 2, 163 12 Z" fill="#ffffff" opacity="0.9"/>
         </svg>
-        <div class="nasa-brand-text-block">
-          <span class="nasa-brand-title">Fases da Lua</span>
-          <span class="nasa-brand-subtitle">Lunar Science & Planetary Exploration</span>
-        </div>
+        <span class="spacex-sub-badge">THE MOON</span>
       </a>
 
-      <!-- Menu de Navegação Horizontal no estilo da barra de menu do nasa.gov -->
-      <nav class="nasa-nav" aria-label="Navegação Principal">
-        <ul class="nasa-nav-list nav-tabs">
+      <!-- Navegação Principal com Sublinhado Animado SpaceX -->
+      <nav class="spacex-nav" aria-label="Navegação da Missão">
+        <ul class="spacex-nav-list nav-tabs">
           <li>
-            <button class="nasa-nav-btn tab-btn active" data-target="modulo1">
-              Visualização das Fases
+            <button class="spacex-nav-btn tab-btn active" data-target="modulo1">
+              Fases Lunares
             </button>
           </li>
           <li>
-            <button class="nasa-nav-btn tab-btn" data-target="modulo2">
-              Simulação do Ciclo
+            <button class="spacex-nav-btn tab-btn" data-target="modulo2">
+              Simulação Orbital
             </button>
           </li>
           <li>
-            <button class="nasa-nav-btn tab-btn" data-target="modulo3">
-              Quiz de Missão
+            <button class="spacex-nav-btn tab-btn" data-target="modulo3">
+              Avaliação de Tripulação
             </button>
           </li>
         </ul>
       </nav>
 
-      <!-- Botão de Ação / Live Mission Status -->
-      <div class="nasa-header-actions">
-        <div class="mission-status-pill">
-          <span class="live-pulse"></span>
-          <span>ARTEMIS LUNAR TELEMETRY</span>
+      <!-- Ação de Cabeçalho / Status de Missão -->
+      <div class="spacex-header-actions">
+        <div class="spacex-telemetry-pill">
+          <span class="telemetry-beacon"></span>
+          <span>STARSHIP // LUNAR TRANSIT</span>
         </div>
       </div>
 
     </div>
   </header>
 
-  <!-- ================= 3. HERO SECTION CINEMATOGRÁFICA (NASA HERO STYLE) ================= -->
-  <section class="nasa-hero-section" id="hero">
-    <div class="nasa-hero-backdrop"></div>
-    <div class="nasa-hero-overlay"></div>
+  <!-- ================= 2. HERO SECTION (ESTILO SPACEX MARS & HUMAN SPACEFLIGHT) ================= -->
+  <section class="spacex-hero" id="hero">
+    <div class="spacex-hero-backdrop"></div>
+    <div class="spacex-hero-gradient"></div>
     
-    <div class="nasa-hero-content">
-      <div class="nasa-topic-tag">
-        <span class="topic-dot"></span>
-        <span>THE SOLAR SYSTEM • EARTH'S MOON • MISSION SCIENCE</span>
-      </div>
+    <div class="spacex-hero-content">
+      <span class="spacex-eyebrow">HUMAN SPACEFLIGHT // EARTH'S MOON</span>
       
-      <h1 class="nasa-hero-title">
-        A Dinâmica do Ciclo Lunar
+      <h1 class="spacex-hero-title">
+        A Rota para a<br>Exploração Lunar
       </h1>
       
-      <p class="nasa-hero-lead">
-        Da antiguidade às missões Artemis da NASA, o movimento orbital da Lua em torno da Terra revela a constante dança entre luz solar e perspectiva cósmica. Explore as oito fases, acompanhe o ciclo orbital de 29,5 dias em tempo real e teste suas habilidades astronômicas.
+      <p class="spacex-hero-lead">
+        Tornar a humanidade multiplanetária começa no satélite natural da Terra. Compreender a geometria de iluminação e o ciclo sinódico de 29,5 dias é a chave para o planejamento de pousos do Starship e a presença humana permanente na Lua.
       </p>
 
-      <div class="nasa-hero-cta-group">
-        <button class="nasa-btn-primary" id="heroBtnExplore">
-          Explorar as 8 Fases
+      <!-- Botões Ghost com Cantos Vivos da SpaceX -->
+      <div class="spacex-cta-row">
+        <button class="btn-spacex-ghost primary" id="heroBtnExplore">
+          Explorar Fases
         </button>
-        <button class="nasa-btn-secondary" id="heroBtnSim">
-          Iniciar Simulação Orbital
+        <button class="btn-spacex-ghost" id="heroBtnSim">
+          Simulação Orbital
         </button>
       </div>
 
-      <!-- Barra de Estatísticas Oficiais de Missão (NASA Data Strip) -->
-      <div class="nasa-stats-strip">
-        <div class="stat-item">
-          <span class="stat-number">29,5</span>
-          <span class="stat-unit">DIAS</span>
-          <span class="stat-label">Mês Sinódico Médio</span>
+      <!-- Grid de Especificações Técnicas SpaceX (Specs Grid) -->
+      <div class="spacex-specs-grid">
+        <div class="spec-card">
+          <span class="spec-number">29.5</span>
+          <span class="spec-unit">DIAS</span>
+          <span class="spec-label">Período Sinódico</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">8</span>
-          <span class="stat-unit">FASES</span>
-          <span class="stat-label">Ciclo Completo</span>
+        <div class="spec-card">
+          <span class="spec-number">8</span>
+          <span class="spec-unit">FASES</span>
+          <span class="spec-label">Geometria Completa</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">384.400</span>
-          <span class="stat-unit">KM</span>
-          <span class="stat-label">Distância Média da Terra</span>
+        <div class="spec-card">
+          <span class="spec-number">384,400</span>
+          <span class="spec-unit">KM</span>
+          <span class="spec-label">Distância Orbital Média</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">1.022</span>
-          <span class="stat-unit">M/S</span>
-          <span class="stat-label">Velocidade de Translação</span>
+        <div class="spec-card">
+          <span class="spec-number">1,022</span>
+          <span class="spec-unit">M/S</span>
+          <span class="spec-label">Velocidade de Translação</span>
         </div>
       </div>
+
+    </div>
+
+    <!-- Indicador de Rolagem SpaceX -->
+    <div class="spacex-scroll-hint">
+      <span>↓</span>
     </div>
   </section>
 
-  <!-- ================= CORPO PRINCIPAL COM OS TRÊS MÓDULOS ================= -->
-  <main class="nasa-main-layout" id="mainContent">
+  <!-- ================= CORPO PRINCIPAL COM OS TRÊS MÓDULOS SPACEX ================= -->
+  <main class="spacex-main" id="mainContent">
 
     <!-- ================= MÓDULO 1: VISUALIZAÇÃO DAS FASES ================= -->
     <section id="modulo1" class="module-section active">
       
-      <div class="nasa-section-header">
-        <div class="nasa-category-badge">ESPECIFICAÇÃO 1 // CATÁLOGO OBSERVACIONAL</div>
-        <h2 class="nasa-section-title">Visualização das Oito Fases Lunares</h2>
-        <p class="nasa-section-desc">
-          Selecione qualquer uma das oito fases catalogadas para inspecionar a geometria solar, o relevo da superfície e os parâmetros astronômicos observados a partir da Terra.
+      <div class="spacex-section-header">
+        <span class="spacex-eyebrow">ESPECIFICAÇÃO 01 // GEOMETRIA LUNAR</span>
+        <h2 class="spacex-section-title">As Oito Fases da Lua</h2>
+        <p class="spacex-section-desc">
+          Selecione uma fase para inspecionar a fração visível iluminada pelo Sol a partir do referencial geocêntrico da Terra.
         </p>
       </div>
 
-      <!-- Grade de Botões das 8 Fases com visual de cards da NASA -->
-      <div class="nasa-feature-box">
-        <div class="nasa-box-label">SELETOR DE FASES DO CICLO:</div>
+      <!-- Seletor de Botões Ghost da SpaceX -->
+      <div class="spacex-phase-selector-card">
+        <span class="panel-micro-tag">SELETOR DE FASE // ARQUITETURA ORBITAL</span>
         <div class="phase-buttons-grid" id="phaseButtonsContainer">
-          <!-- Gerado dinamicamente via script.js -->
+          <!-- Botões das 8 fases gerados dinamicamente via script.js -->
         </div>
       </div>
 
-      <!-- Display Principal: Imagem Lunar + Ficha Técnica da NASA -->
+      <!-- Display Principal da Lua: Moldura Técnica SpaceX Starship -->
       <div class="phase-display-card">
         
         <div class="phase-moon-view">
-          <div class="telemetry-lens-overlay"></div>
+          <div class="target-reticle"></div>
           <div class="moon-graphic-wrapper" id="phaseMoonGraphic">
             <!-- Renderização do SVG da Lua pelo JS -->
           </div>
@@ -192,27 +157,27 @@
         </div>
 
         <div class="phase-info-content">
-          <div class="data-kicker">RELATÓRIO CIENTÍFICO // TELEMETRIA GEOCÊNTRICA</div>
+          <span class="spacex-eyebrow accent">TELEMETRIA ÓPTICA DA SUPERFÍCIE</span>
           <h3 id="phaseTitle" class="phase-title">Lua Nova</h3>
 
-          <!-- Grid de Métricas de Voo da NASA -->
+          <!-- Grade de Especificações da Fase Selecionada -->
           <div class="phase-quick-metrics">
-            <div class="metric-card">
-              <span class="metric-caption">DIA MÉDIO DO CICLO</span>
-              <span class="metric-value" id="phaseDayMetric">~ Dia 0</span>
+            <div class="spacex-stat-box">
+              <span class="stat-caption">DIA DO CICLO</span>
+              <span class="stat-val" id="phaseDayMetric">~ Dia 0</span>
             </div>
-            <div class="metric-card">
-              <span class="metric-caption">ILUMINAÇÃO VISÍVEL</span>
-              <span class="metric-value" id="phaseLightMetric">0%</span>
+            <div class="spacex-stat-box">
+              <span class="stat-caption">ILUMINAÇÃO SOLAR</span>
+              <span class="stat-val" id="phaseLightMetric">0%</span>
             </div>
-            <div class="metric-card">
-              <span class="metric-caption">CONDIÇÃO DE VISIBILIDADE</span>
-              <span class="metric-value" id="phaseVisMetric">Invisível a olho nu</span>
+            <div class="spacex-stat-box">
+              <span class="stat-caption">CONDIÇÃO DE VISIBILIDADE</span>
+              <span class="stat-val" id="phaseVisMetric">Invisível a olho nu</span>
             </div>
           </div>
 
-          <div class="nasa-article-text">
-            <span class="article-lead-tag">DESCRIÇÃO ASTRONÔMICA:</span>
+          <div class="spacex-briefing-box">
+            <span class="panel-micro-tag">RELATÓRIO DE MISSÃO // ANÁLISE ASTRONÔMICA</span>
             <p id="phaseDescription" class="phase-description"></p>
           </div>
         </div>
@@ -223,21 +188,21 @@
     <!-- ================= MÓDULO 2: SIMULAÇÃO DO CICLO LUNAR ================= -->
     <section id="modulo2" class="module-section">
       
-      <div class="nasa-section-header">
-        <div class="nasa-category-badge">ESPECIFICAÇÃO 2 // CENTRO DE CONTROLE ORBITAL</div>
-        <h2 class="nasa-section-title">Simulação do Ciclo Lunar (~29,5 Dias)</h2>
-        <p class="nasa-section-desc">
-          Acompanhe em tempo real a órbita da Lua ao redor do centro gravitacional Terra-Lua, observando a relação direta entre o ângulo Sol-Terra-Lua e a porção iluminada visível aos observadores terrestres.
+      <div class="spacex-section-header">
+        <span class="spacex-eyebrow">ESPECIFICAÇÃO 02 // DINÂMICA DE VOO</span>
+        <h2 class="spacex-section-title">Simulação do Ciclo Lunar (~29,5 Dias)</h2>
+        <p class="spacex-section-desc">
+          Animação orbital contínua do ciclo sinódico com telemetria geocêntrica em tempo real e controle de velocidade.
         </p>
       </div>
 
       <div class="sim-layout">
         
-        <!-- Radar Orbital e Visor Geocêntrico -->
+        <!-- Radar Orbital e Visor Geocêntrico SpaceX -->
         <div class="sim-visual-box">
           <div class="sim-box-topbar">
-            <span class="panel-tag">RADAR ORBITAL (VISÃO POLAR)</span>
-            <span class="telemetry-pill-active"><span class="pulse-dot"></span> AO VIVO</span>
+            <span class="panel-micro-tag">RADAR DE TRAJETÓRIA POLAR</span>
+            <span class="telemetry-live-pill"><span class="beacon-dot"></span> AO VIVO</span>
           </div>
 
           <div class="orbit-stage" id="orbitStage">
@@ -246,7 +211,7 @@
             
             <div class="sun-indicator">
               <span class="sun-symbol">☀️</span>
-              <span class="sun-text">LUZ SOLAR (INCIDÊNCIA)</span>
+              <span class="sun-text">VETOR SOLAR</span>
             </div>
             
             <div class="earth-model">
@@ -263,21 +228,21 @@
           <!-- Close-up da Lua vista da Terra -->
           <div class="sim-closeup-card">
             <div class="closeup-topbar">
-              <span class="panel-tag">PERSPECTIVA DA SUPERFÍCIE TERRESTRE</span>
+              <span class="panel-micro-tag">PERSPECTIVA GEOCÊNTRICA DA SUPERFÍCIE</span>
             </div>
             <div class="sim-closeup-graphic" id="simCloseupGraphic"></div>
             <div class="sim-phase-badge" id="simCurrentPhaseBadge">Lua Nova</div>
           </div>
         </div>
 
-        <!-- Painel de Instrumentos e Controles -->
+        <!-- Painel de Telemetria e Comandos SpaceX -->
         <div class="sim-panel-box">
           
           <!-- Cronômetro da Simulação -->
           <div class="counter-display">
             <div class="telemetry-top">
-              <span class="counter-label">CRONÔMETRO DO CICLO SINÓDICO</span>
-              <span class="telemetry-sys">SYS.ORB-29.53</span>
+              <span class="panel-micro-tag">CRONÔMETRO DE MISSÃO // CICLO SINÓDICO</span>
+              <span class="telemetry-code">SYS.TLM-29.53</span>
             </div>
 
             <div class="counter-number">
@@ -291,17 +256,17 @@
             </div>
           </div>
 
-          <!-- Botões de Controle de Voo -->
+          <!-- Botões de Controle Ghost da SpaceX -->
           <div class="sim-controls-wrapper">
             
             <div class="sim-button-row">
-              <button class="control-btn btn-play" id="btnSimPlay">
+              <button class="btn-spacex-ghost primary" id="btnSimPlay">
                 <span class="btn-icon">▶</span> Iniciar
               </button>
-              <button class="control-btn btn-pause" id="btnSimPause" disabled>
+              <button class="btn-spacex-ghost" id="btnSimPause" disabled>
                 <span class="btn-icon">⏸</span> Pausar
               </button>
-              <button class="control-btn btn-reset" id="btnSimReset">
+              <button class="btn-spacex-ghost" id="btnSimReset">
                 <span class="btn-icon">↺</span> Reiniciar
               </button>
             </div>
@@ -309,7 +274,7 @@
             <!-- Controle Deslizante de Velocidade -->
             <div class="speed-control-card">
               <div class="speed-header">
-                <label for="speedSlider">CONTROLE DE VELOCIDADE DA ANIMAÇÃO:</label>
+                <label for="speedSlider">FATOR DE ACELERAÇÃO DE TEMPO:</label>
                 <span class="speed-readout" id="speedReadout">1.0x</span>
               </div>
               <input 
@@ -322,17 +287,17 @@
                 aria-label="Ajustar velocidade da simulação" 
               />
               <div class="speed-ticks">
-                <span>0.25x (Lenta)</span>
-                <span>1.0x (Padrão)</span>
-                <span>4.0x (Rápida)</span>
+                <span>0.25X</span>
+                <span>1.0X (NOMINAL)</span>
+                <span>4.0X</span>
               </div>
             </div>
 
-            <!-- Checklist das Oito Fases Percorridas -->
+            <!-- Checklist das Fases de Voo -->
             <div class="sim-legend-card">
               <div class="legend-header">
                 <h4>FASES PERCORRIDAS EM ORDEM:</h4>
-                <span class="status-tag">CHECKLIST NOMINAL</span>
+                <span class="checklist-badge">CHECKLIST NOMINAL</span>
               </div>
               <ol class="sim-phases-list" id="simPhasesList">
                 <!-- Gerado dinamicamente via JS -->
@@ -349,11 +314,11 @@
     <!-- ================= MÓDULO 3: QUIZ ================= -->
     <section id="modulo3" class="module-section">
       
-      <div class="nasa-section-header">
-        <div class="nasa-category-badge">ESPECIFICAÇÃO 3 // NASA STEM ENGAGEMENT</div>
-        <h2 class="nasa-section-title">Quiz do Ciclo Lunar & Astronomia</h2>
-        <p class="nasa-section-desc">
-          Avaliação de conhecimento astronômico elaborada para estudantes e pesquisadores espaciais. Teste seus conhecimentos sobre as fases e mecânica celeste.
+      <div class="spacex-section-header">
+        <span class="spacex-eyebrow">ESPECIFICAÇÃO 03 // QUALIFICAÇÃO DE TRIPULAÇÃO</span>
+        <h2 class="spacex-section-title">Avaliação Astronômica da Tripulação</h2>
+        <p class="spacex-section-desc">
+          Avaliação de conhecimentos em mecânica celeste exigida para operadores e cientistas de missão do programa Starship Lunar.
         </p>
       </div>
 
@@ -370,7 +335,7 @@
             <div class="quiz-progress-bar" id="quizProgressBar"></div>
           </div>
 
-          <h3 class="quiz-question-title" id="quizQuestionText">Carregando pergunta de missão...</h3>
+          <h3 class="quiz-question-title" id="quizQuestionText">Carregando avaliação de tripulação...</h3>
 
           <div class="quiz-options-grid" id="quizOptionsContainer">
             <!-- 4 opções geradas via JS -->
@@ -379,7 +344,7 @@
           <div class="quiz-feedback-box" id="quizFeedbackBox" aria-live="polite"></div>
 
           <div class="quiz-actions-bar">
-            <button class="control-btn btn-play" id="btnQuizNext" style="display: none;">
+            <button class="btn-spacex-ghost primary" id="btnQuizNext" style="display: none;">
               Próxima Questão →
             </button>
           </div>
@@ -387,10 +352,10 @@
 
         <!-- Tela de Resultado Final -->
         <div class="quiz-card quiz-results-card" id="quizResultArea" style="display: none;">
-          <div class="result-badge-nasa">CERTIFICADO ASTRONÔMICO ARTEMIS</div>
+          <span class="spacex-eyebrow">STATUS // QUALIFICAÇÃO CONCLUÍDA</span>
           <div class="result-moon-art">🌕</div>
-          <h3>Avaliação Concluída!</h3>
-          <p class="result-summary" id="resultSummaryText">Seu teste de conhecimentos sobre o ciclo lunar foi processado com sucesso.</p>
+          <h3>Avaliação Finalizada</h3>
+          <p class="result-summary" id="resultSummaryText">Dados de qualificação da missão processados com sucesso.</p>
           
           <div class="result-score-circle">
             <span class="final-score-val" id="resultScoreValue">0 / 0</span>
@@ -399,8 +364,8 @@
 
           <div class="result-feedback-message" id="resultMessage"></div>
 
-          <button class="control-btn btn-play" id="btnQuizRestart">
-            <span class="btn-icon">↺</span> Reiniciar Quiz
+          <button class="btn-spacex-ghost primary" id="btnQuizRestart">
+            <span class="btn-icon">↺</span> Reiniciar Avaliação
           </button>
         </div>
 
@@ -409,68 +374,18 @@
 
   </main>
 
-  <!-- ================= 4. FOOTER INSTITUCIONAL COMPLETO DA NASA (NASA.GOV) ================= -->
-  <footer class="nasa-footer">
-    <div class="nasa-footer-inner">
-      
-      <div class="nasa-footer-main">
-        <div class="nasa-footer-brand">
-          <!-- Logo Meatball Pequeno -->
-          <svg class="nasa-footer-logo" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" width="70" height="58" aria-label="NASA Logo">
-            <circle cx="60" cy="50" r="44" fill="#0b3d91"/>
-            <ellipse cx="60" cy="50" rx="46" ry="17" fill="none" stroke="#ffffff" stroke-width="2.4" transform="rotate(-30 60 50)"/>
-            <path d="M 22 68 L 52 28 L 74 62 L 64 64 L 52 38 L 30 70 Z" fill="#fc3d21"/>
-            <path d="M 52 28 L 98 44 L 88 47 L 52 33 Z" fill="#fc3d21"/>
-            <text x="60" y="58" font-family="'Inter', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">NASA</text>
-          </svg>
-          <div>
-            <h4 class="nasa-footer-title">National Aeronautics and Space Administration</h4>
-            <p class="nasa-footer-desc">
-              A NASA explora o desconhecido no ar e no espaço, inova para o benefício da humanidade e inspira o mundo através da descoberta científica.
-            </p>
-          </div>
-        </div>
-
-        <div class="nasa-footer-nav-cols">
-          <div class="footer-col">
-            <h5>Exploração</h5>
-            <ul>
-              <li><a href="#modulo1">Fases da Lua</a></li>
-              <li><a href="#modulo2">Simulador de Órbita</a></li>
-              <li><a href="#modulo3">Quiz de Conhecimento</a></li>
-              <li><span>Missões Artemis</span></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Ciência Lunar</h5>
-            <ul>
-              <li><span>Mês Sinódico</span></li>
-              <li><span>Mecânica Celeste</span></li>
-              <li><span>Gravidade & Marés</span></li>
-              <li><span>Topografia Lunar</span></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Projeto Acadêmico</h5>
-            <ul>
-              <li><span>GTI — Programação</span></li>
-              <li><span>Prof. Juan</span></li>
-              <li><span>Autor: Jonas Kauã</span></li>
-              <li><span>Licença MIT</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="nasa-footer-bottom">
-        <p class="footer-legal">
-          Aplicação Web Educativa <strong>Fases da Lua</strong> • Construída em conformidade com as diretrizes do <strong>NASA Web Design System (HDS / USWDS)</strong> em HTML5, CSS3 e JavaScript puro.
-        </p>
-        <p class="footer-copy">
-          Projeto acadêmico sem fins lucrativos • Dados astronômicos baseados nas efemérides do NASA Jet Propulsion Laboratory (JPL).
-        </p>
-      </div>
-
+  <!-- ================= 3. FOOTER MINIMALISTA SPACEX ================= -->
+  <footer class="spacex-footer">
+    <div class="spacex-footer-inner">
+      <span class="footer-copy">SPACEX LUNAR EXPLORATION © 2026</span>
+      <ul class="footer-links">
+        <li><a href="#modulo1">Fases</a></li>
+        <li><a href="#modulo2">Simulação</a></li>
+        <li><a href="#modulo3">Quiz</a></li>
+        <li><span>GTI — Linguagem de Programação</span></li>
+        <li><span>Prof. Juan</span></li>
+        <li><span>Autor: Jonas Kauã</span></li>
+      </ul>
     </div>
   </footer>
 
